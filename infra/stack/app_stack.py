@@ -12,7 +12,7 @@ class AppRunnerStack(Stack):
             self,
             "AppRunnerPythonDemo",
             source=apprunner.Source.from_git_hub(
-                repository_url="https://github.com/michaelbrewer/app-runner-php",
+                repository_url="https://github.com/michaelbrewer/app-runner-python",
                 branch="main",
                 configuration_source=apprunner.ConfigurationSourceType.REPOSITORY,
                 connection=apprunner.GitHubConnection.from_connection_arn(os.environ["GITHUB_ARN"]),

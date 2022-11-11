@@ -55,14 +55,14 @@ exceptiongroup = {version = "*", markers = "python_version < \"3.11\""}
 
 [[package]]
 name = "constructs"
-version = "10.1.153"
+version = "10.1.156"
 description = "A programming model for software-defined state"
 category = "main"
 optional = false
 python-versions = "~=3.7"
 
 [package.dependencies]
-jsii = ">=1.70.0,<2.0.0"
+jsii = ">=1.71.0,<2.0.0"
 publication = ">=0.0.3"
 typeguard = ">=2.13.3,<2.14.0"
 
@@ -79,7 +79,7 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "jsii"
-version = "1.70.0"
+version = "1.71.0"
 description = "Python client for jsii runtime"
 category = "main"
 optional = false
@@ -163,16 +163,16 @@ cattrs = [
     {file = "cattrs-22.2.0.tar.gz", hash = "sha256:f0eed5642399423cf656e7b66ce92cdc5b963ecafd041d1b24d136fdde7acf6d"},
 ]
 constructs = [
-    {file = "constructs-10.1.153-py3-none-any.whl", hash = "sha256:be0380ae5667a1a6af01eb0555e1ecbb5b65a3ebefdc9c4a5d9ba033fcb0a184"},
-    {file = "constructs-10.1.153.tar.gz", hash = "sha256:9220d7b4c5aed7542c63bf29f0e522d3a352f3fbb3a86e25e6d4568ada47abb9"},
+    {file = "constructs-10.1.156-py3-none-any.whl", hash = "sha256:350e5300a8f2e454d7ce8006994dcdba37bd5072110b5401c2487781fcff2919"},
+    {file = "constructs-10.1.156.tar.gz", hash = "sha256:ecd5b0dd7a1c8c9a061514cbf66c905a879af11fdd7c284a4060c921ffe8b041"},
 ]
 exceptiongroup = [
     {file = "exceptiongroup-1.0.1-py3-none-any.whl", hash = "sha256:4d6c0aa6dd825810941c792f53d7b8d71da26f5e5f84f20f9508e8f2d33b140a"},
     {file = "exceptiongroup-1.0.1.tar.gz", hash = "sha256:73866f7f842ede6cb1daa42c4af078e2035e5f7607f0e2c762cc51bb31bbe7b2"},
 ]
 jsii = [
-    {file = "jsii-1.70.0-py3-none-any.whl", hash = "sha256:d0867c0d2f60ceda1664c026033ae34ea36178c7027315e577ded13043827664"},
-    {file = "jsii-1.70.0.tar.gz", hash = "sha256:9fc57ff37868364ba3417b26dc97189cd0cc71282196a3f4765768c067354be0"},
+    {file = "jsii-1.71.0-py3-none-any.whl", hash = "sha256:0f081498d9f2a12850577caedebe604e4b6e98e7fb20c3bbcca05a5ab8bd0f0b"},
+    {file = "jsii-1.71.0.tar.gz", hash = "sha256:e8fedaf077c192917f1d43100b2bbb5d107e4393b713f8ca2814d7653d64a026"},
 ]
 publication = [
     {file = "publication-0.0.3-py2.py3-none-any.whl", hash = "sha256:0248885351febc11d8a1098d5c8e3ab2dabcf3e8c0c96db1e17ecd12b53afbe6"},

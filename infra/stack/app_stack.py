@@ -36,6 +36,7 @@ class AppRunnerStack(Stack):
             assumed_by=ServicePrincipal("tasks.apprunner.amazonaws.com"),
             managed_policies=[ManagedPolicy.from_aws_managed_policy_name("AWSXRayDaemonWriteAccess")],
         )
+        table.grant_read_data(instance_role)
         observability_configuration = CfnObservabilityConfiguration(
             self,
             "AppRunnerObservability",

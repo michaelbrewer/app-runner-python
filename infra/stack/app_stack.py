@@ -1,6 +1,6 @@
 import os
 from constructs import Construct
-from aws_cdk import Stack
+from aws_cdk import Stack, RemovalPolicy
 import aws_cdk.aws_apprunner_alpha as apprunner
 from aws_cdk.aws_iam import Role, ServicePrincipal, ManagedPolicy
 from aws_cdk.aws_apprunner import CfnObservabilityConfiguration, CfnService
@@ -17,6 +17,7 @@ class AppRunnerStack(Stack):
             table_name="app-runner-python-table",
             billing_mode=aws_dynamodb.BillingMode.PAY_PER_REQUEST,
             partition_key=aws_dynamodb.Attribute(name="pk", type=aws_dynamodb.AttributeType.STRING),
+            removal_policy=RemovalPolicy.DESTROY,
         )
 
         # apprunner.Service(

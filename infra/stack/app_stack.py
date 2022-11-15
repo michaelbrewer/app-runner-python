@@ -4,11 +4,20 @@ from aws_cdk import Stack
 import aws_cdk.aws_apprunner_alpha as apprunner
 from aws_cdk.aws_iam import Role, ServicePrincipal, ManagedPolicy
 from aws_cdk.aws_apprunner import CfnObservabilityConfiguration, CfnService
+from aws_cdk import aws_dynamodb
 
 
 class AppRunnerStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
+        
+        table = aws_dynamodb.Table(
+            self,
+            "AppRunnerTable",
+            table_name="app-runner-python-table",
+            billing_mode=aws_dynamodb.BillingMode.PAY_PER_REQUEST,
+            partition_key=aws_dynamodb.Attribute(name="pk", type=aws_dynamodb.AttributeType.STRING),
+        )
 
         # apprunner.Service(
         #     self,
@@ -42,7 +51,20 @@ class AppRunnerStack(Stack):
                 ),
                 code_repository=CfnService.CodeRepositoryProperty(
                     code_configuration=CfnService.CodeConfigurationProperty(
-                        configuration_source="REPOSITORY",
+                        configuration_source="API",
+                        code_configuration_values=CfnService.CodeConfigurationValuesProperty(
+                            runtime="PYTHON_3",
+                            build_command="pip install -r requirements.txt && opentelemetry-bootstrap --action=install",
+                            port="8080",
+                            start_command="opentelemetry-bootstrap --action=install",
+                            runtime_environment_variables=[
+                                CfnService.KeyValuePairProperty(name="OTEL_PROPAGATORS", value="xray"),
+                                CfnService.KeyValuePairProperty(name="OTEL_PYTHON_ID_GENERATOR", value="xray"),
+                                CfnService.KeyValuePairProperty(name="OTEL_PYTHON_DISABLED_INSTRUMENTATIONS", value="urllib3"),
+                                CfnService.KeyValuePairProperty(name="OTEL_RESOURCE_ATTRIBUTES", value="'service.name=app_runner_python'"),
+                                CfnService.KeyValuePairProperty(name="TABLE_NAME", value=table.table_name),
+                            ],
+                        ),
                     ),
                     repository_url="https://github.com/michaelbrewer/app-runner-python",
                     source_code_version=CfnService.SourceCodeVersionProperty(type="BRANCH", value="main"),

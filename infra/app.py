@@ -5,5 +5,5 @@ from stack.app_stack import AppRunnerStack
 
 app = cdk.App()
 stack = AppRunnerStack(app, "app-runner-python")
-cdk.Tags.of(stack).add("project", "app-runner-demo")
+cdk.Tags.of(stack).add("project", "app-runner-python-demo")
 app.synth()

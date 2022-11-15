@@ -6,11 +6,13 @@ build:
       - pip install -r requirements.txt
       - opentelemetry-bootstrap --action=install
 run:
-  command: opentelemetry-instrument python -m http.server --directory web 8080
+  command: opentelemetry-instrument python app.py
   env:
     - name: OTEL_PROPAGATORS
       value: xray
     - name: OTEL_PYTHON_ID_GENERATOR
       value: xray
+    - name: OTEL_PYTHON_DISABLED_INSTRUMENTATIONS 
+      value: urllib3
     - name: OTEL_RESOURCE_ATTRIBUTES
       value: 'service.name=app_runner_python'

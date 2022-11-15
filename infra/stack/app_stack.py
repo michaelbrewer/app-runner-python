@@ -56,8 +56,8 @@ class AppRunnerStack(Stack):
                         code_configuration_values=CfnService.CodeConfigurationValuesProperty(
                             runtime="PYTHON_3",
                             build_command="pip install -r requirements.txt && opentelemetry-bootstrap --action=install",
+                            start_command="opentelemetry-instrument python app.py",
                             port="8080",
-                            start_command="opentelemetry-bootstrap --action=install",
                             runtime_environment_variables=[
                                 CfnService.KeyValuePairProperty(name="OTEL_PROPAGATORS", value="xray"),
                                 CfnService.KeyValuePairProperty(name="OTEL_PYTHON_ID_GENERATOR", value="xray"),

@@ -10,7 +10,7 @@ table = dynamodb.Table(os.environ["TABLE_NAME"])
 
 @app.route("/")
 def hello():
-    return table.get_item(Key={"PK": "100"})["Item"]["value"]
+    return table.get_item(Key={"pk": "100"})["Item"]["value"]
 
 
 if __name__ == "__main__":

@@ -63,7 +63,7 @@ class AppRunnerStack(Stack):
                                 CfnService.KeyValuePairProperty(name="OTEL_PROPAGATORS", value="xray"),
                                 CfnService.KeyValuePairProperty(name="OTEL_PYTHON_ID_GENERATOR", value="xray"),
                                 CfnService.KeyValuePairProperty(name="OTEL_PYTHON_DISABLED_INSTRUMENTATIONS", value="urllib3"),
-                                CfnService.KeyValuePairProperty(name="OTEL_RESOURCE_ATTRIBUTES", value="'service.name=app_runner_python'"),
+                                CfnService.KeyValuePairProperty(name="OTEL_RESOURCE_ATTRIBUTES", value="service.name=app_runner_python"),
                                 CfnService.KeyValuePairProperty(name="TABLE_NAME", value=table.table_name),
                             ],
                         ),

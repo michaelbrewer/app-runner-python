@@ -68,7 +68,7 @@ class AppRunnerStack(Stack):
                             ],
                         ),
                     ),
-                    repository_url="https://github.com/michaelbrewer/app-runner-python",
+                    repository_url=os.environ["GITHUB_URL"],
                     source_code_version=CfnService.SourceCodeVersionProperty(type="BRANCH", value="main"),
                 ),
                 auto_deployments_enabled=True,

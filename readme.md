@@ -4,7 +4,7 @@ Simple example using CDK to bootstrap a new AppRunner project using the Python m
 
 ## Infra deployment
 
-```console
+```bash
 cd infra
 make dev
 # Your forked repo

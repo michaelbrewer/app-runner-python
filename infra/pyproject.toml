@@ -5,8 +5,8 @@ authors = ["Michael Brewer"]
 description = "Infrastructure code for app runner demo"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-aws-cdk-aws-apprunner-alpha = "^2.50.0a0"
+python = "^3.8"
+aws-cdk-aws-apprunner-alpha = "^2.51.1a0"
 
 [build-system]
 requires = ["poetry-core"]
